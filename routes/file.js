@@ -6,7 +6,12 @@ const router = express.Router();
 // TODO
 
 // controllers
-import { postUpload, getAllFiles, download } from "../controllers/files";
+import {
+  postUpload,
+  getAllFiles,
+  getAllBenefitsFiles,
+  download,
+} from "../controllers/files";
 
 // multer upload function
 const upload = multer({
@@ -35,6 +40,7 @@ const upload = multer({
 
 router.post("/upload", upload.single("file"), postUpload);
 router.post("/getAllFiles", getAllFiles);
+router.post("/getAllBenefitsFiles", getAllBenefitsFiles);
 router.get("/download/:id", download);
 
 module.exports = router;

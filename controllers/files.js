@@ -1,5 +1,5 @@
 const path = require("path");
-const File = require("../model/file");
+const File = require("../models/file");
 
 export const postUpload = async (req, res) => {
   //   console.log("BODY---->", req.body);
@@ -21,6 +21,19 @@ export const postUpload = async (req, res) => {
 };
 
 export const getAllFiles = async (req, res) => {
+  try {
+    const { category } = req.body;
+    const files = await File.find({ category: category });
+    const sortedByCreationDate = files.sort(
+      (a, b) => b.createdAt - a.createdAt
+    );
+    res.send(sortedByCreationDate);
+  } catch (error) {
+    res.status(400).send("Error while getting list of files. Try again later.");
+  }
+};
+
+export const getAllBenefitsFiles = async (req, res) => {
   try {
     const { category } = req.body;
     const files = await File.find({ category: category });
