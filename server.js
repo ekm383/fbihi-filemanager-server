@@ -3,7 +3,6 @@ import { readdirSync } from "fs";
 const cors = require("cors");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-const bodyParser = require("body-parser");
 const fileRoute = require("./routes/file");
 require("dotenv").config();
 
@@ -23,7 +22,6 @@ mongoose
 // middlewares
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(bodyParser.json({ limit: "2mb" }));
 app.use(fileRoute);
 app.use(cors());
 
