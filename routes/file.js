@@ -1,4 +1,5 @@
-import express from "express";
+// import express from "express";
+const express = require("express");
 const multer = require("multer");
 const router = express.Router();
 
@@ -6,12 +7,12 @@ const router = express.Router();
 // TODO
 
 // controllers
-import {
+const {
   postUpload,
   getAllFiles,
   getAllBenefitsFiles,
   download,
-} from "../controllers/files";
+} = require("../controllers/files");
 
 // multer upload function
 const upload = multer({

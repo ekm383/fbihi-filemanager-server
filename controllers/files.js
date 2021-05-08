@@ -1,7 +1,7 @@
 const path = require("path");
 const File = require("../models/file");
 
-export const postUpload = async (req, res) => {
+exports.postUpload = async (req, res) => {
   //   console.log("BODY---->", req.body);
   //   console.log("FILE---->", req.file);
   try {
@@ -20,7 +20,7 @@ export const postUpload = async (req, res) => {
   }
 };
 
-export const getAllFiles = async (req, res) => {
+exports.getAllFiles = async (req, res) => {
   try {
     const { category } = req.body;
     const files = await File.find({ category: category });
@@ -33,7 +33,7 @@ export const getAllFiles = async (req, res) => {
   }
 };
 
-export const getAllBenefitsFiles = async (req, res) => {
+exports.getAllBenefitsFiles = async (req, res) => {
   try {
     const { category } = req.body;
     const files = await File.find({ category: category });
@@ -46,7 +46,7 @@ export const getAllBenefitsFiles = async (req, res) => {
   }
 };
 
-export const download = async (req, res) => {
+exports.download = async (req, res) => {
   try {
     const file = await File.findById(req.params.id);
     res.set({

@@ -1,4 +1,4 @@
-const admin = require("../firebase/index");
+const admin = require("../firebase");
 const User = require("../models/user");
 
 exports.authCheck = async (req, res, next) => {
