@@ -25,7 +25,7 @@ const upload = multer({
     },
   }),
   limits: {
-    fileSize: 1000000, // max file size 1MB = 1000000 bytes
+    fileSize: 15728640, // max file size 1MB = 1000000 bytes
   },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls)$/)) {
